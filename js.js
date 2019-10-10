@@ -4,19 +4,15 @@ let a3 = [1,7,3];
 let a4 = [1,undefined,3,5,-3];
 let a5 = [1,NaN,3,5,-3];
 
-const arrCheck = (arr) => (typeof arr === "object" && arr instanceof Array && arr.length > 0) && typeof arr !== 'string';
-
-const checkArrItem = (item) => isNaN(item) || item === undefined || typeof item !== 'number';
+const arrCheck = (arr) =>  arr instanceof Array && arr.length;
 
 const loopByTypes = (arr, type = 'sum') => {
-    let length = null,
-        max = -Infinity,
-        min = Infinity,
-        sum = 0;
-    if(arrCheck(arr)) {
-        length = arr.length;
-        for (let i = 0; i < length; i++) {
-            if(!checkArrItem(arr[i])) {
+    let max = -Infinity;
+    let min = Infinity;
+    let sum = 0;
+    if( arrCheck(arr) ) {
+        for (let i = 0; i < arr.length; i++) {
+            if(!isNaN(arr[i])) {
                 switch (type) {
                     case 'max':
                         if(arr[i] > max) {max = arr[i]}
@@ -31,7 +27,9 @@ const loopByTypes = (arr, type = 'sum') => {
         }
         return  max !== -Infinity ? max : min !== Infinity ? min :  sum !== 0 ? sum : 'wrong type in array item' ;
 
-    } else return 'invalid';
+    } else {
+        return 'invalid';
+    }
 };
 //******************** can be used one function for three kind of types
 console.log(loopByTypes(a5, 'min'));
@@ -39,51 +37,51 @@ console.log(loopByTypes(a5, 'min'));
 //******************** or simple functions
 
 const max = (arr) => {
-     let length = null,
-      max = -Infinity;
+     let max = -Infinity;
 
-      if(arrCheck(arr)) {
-          length = arr.length;
-          for (let i = 0; i < length; i++) {
-              if(!checkArrItem(arr[i])) {
+      if( arrCheck(arr) ) {
+          for (let i = 0; i < arr.length; i++) {
+              if(!isNaN(arr[i])) {
                   if(arr[i] > max) {max = arr[i]}
               }
           }
           return  max;
 
-      } else return 'invalid';
+      } else {
+          return 'invalid';
+      }
 };
 
 const min = (arr) => {
-    let length = null,
-        min = Infinity;
+    let min = Infinity;
 
-    if(arrCheck(arr)) {
-        length = arr.length;
-        for (let i = 0; i < length; i++) {
-            if(!checkArrItem(arr[i])) {
+    if( arrCheck(arr) ) {
+        for (let i = 0; i < arr.length; i++) {
+            if(!isNaN(arr[i])) {
                 if(arr[i] < min) {min = arr[i]}
             }
         }
         return  min;
 
-    } else return 'invalid';
+    } else {
+        return 'invalid';
+    }
 };
 
 const sum = (arr) => {
-    let length = null,
-        sum = 0;
+    let sum = 0;
 
-    if(arrCheck(arr)) {
-        length = arr.length;
-        for (let i = 0; i < length; i++) {
-            if(!checkArrItem(arr[i])) {
+    if( arrCheck(arr) ) {
+        for (let i = 0; i < arr.length; i++) {
+            if(!isNaN(arr[i])) {
                 sum += arr[i];
             }
         }
         return  sum;
 
-    } else return 'invalid';
+    } else {
+        return 'invalid';
+    }
 };
 
 // console.log(max(a4));
