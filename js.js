@@ -12,6 +12,7 @@ const loopByTypes = (arr, type = 'sum') => {
     let sum = 0;
     if( arrCheck(arr) ) {
         for (let i = 0; i < arr.length; i++) {
+
             if(!isNaN(arr[i])) {
                 switch (type) {
                     case 'max':
@@ -40,6 +41,7 @@ const max = (arr) => {
      let max = -Infinity;
 
       if( arrCheck(arr) ) {
+
           for (let i = 0; i < arr.length; i++) {
               if(!isNaN(arr[i])) {
                   if(arr[i] > max) {max = arr[i]}
@@ -56,6 +58,7 @@ const min = (arr) => {
     let min = Infinity;
 
     if( arrCheck(arr) ) {
+
         for (let i = 0; i < arr.length; i++) {
             if(!isNaN(arr[i])) {
                 if(arr[i] < min) {min = arr[i]}
@@ -72,6 +75,7 @@ const sum = (arr) => {
     let sum = 0;
 
     if( arrCheck(arr) ) {
+
         for (let i = 0; i < arr.length; i++) {
             if(!isNaN(arr[i])) {
                 sum += arr[i];
