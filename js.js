@@ -6,6 +6,8 @@ let a5 = [1,NaN,3,5,-3];
 
 const arrCheck = (arr) =>  arr instanceof Array && arr.length;
 
+
+//******************** can be used one function for three kind of types
 const loopByTypes = (arr, type = 'sum') => {
     let max = -Infinity;
     let min = Infinity;
@@ -13,7 +15,7 @@ const loopByTypes = (arr, type = 'sum') => {
     if( arrCheck(arr) ) {
         for (let i = 0; i < arr.length; i++) {
 
-            if(!isNaN(arr[i])) {
+            if( !isNaN(arr[i]) ) {
                 switch (type) {
                     case 'max':
                         if(arr[i] > max) {max = arr[i]}
@@ -32,8 +34,8 @@ const loopByTypes = (arr, type = 'sum') => {
         return 'invalid';
     }
 };
-//******************** can be used one function for three kind of types
-console.log(loopByTypes(a5, 'min'));
+
+
 
 //******************** or simple functions
 
@@ -43,7 +45,7 @@ const max = (arr) => {
       if( arrCheck(arr) ) {
 
           for (let i = 0; i < arr.length; i++) {
-              if(!isNaN(arr[i])) {
+              if( !isNaN(arr[i]) ) {
                   if(arr[i] > max) {max = arr[i]}
               }
           }
@@ -60,7 +62,7 @@ const min = (arr) => {
     if( arrCheck(arr) ) {
 
         for (let i = 0; i < arr.length; i++) {
-            if(!isNaN(arr[i])) {
+            if( !isNaN(arr[i]) ) {
                 if(arr[i] < min) {min = arr[i]}
             }
         }
@@ -77,7 +79,7 @@ const sum = (arr) => {
     if( arrCheck(arr) ) {
 
         for (let i = 0; i < arr.length; i++) {
-            if(!isNaN(arr[i])) {
+            if( !isNaN(arr[i]) ) {
                 sum += arr[i];
             }
         }
@@ -87,7 +89,3 @@ const sum = (arr) => {
         return 'invalid';
     }
 };
-
-// console.log(max(a4));
-// console.log(min(a1));
-// console.log(sum(a5));
