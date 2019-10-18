@@ -12,10 +12,9 @@ const loopByTypes = (arr, type = 'sum') => {
     let max = -Infinity;
     let min = Infinity;
     let sum = 0;
-    let isTypeSum = type === 'sum';
-    if (arrCheck(arr) !== false) {
+    if (arrCheck(arr)) {
         for (let i = 0; i < arr.length; i++) {
-            if (isNaN(arr[i]) === false) {
+            if (!isNaN(arr[i])) {
                 switch (type) {
                     case 'max':
                         if (arr[i] > max) { max = arr[i] }
@@ -28,7 +27,7 @@ const loopByTypes = (arr, type = 'sum') => {
                 }
             }
         }
-        return  (max !== -Infinity ? max : min !== Infinity ? min : isTypeSum ? sum : 'wrong type in property');
+        return  (max !== -Infinity ? max : min !== Infinity ? min : type === 'sum' ? sum : 'wrong type in property');
     } else {
         return 'invalid array';
     }
@@ -38,9 +37,9 @@ const loopByTypes = (arr, type = 'sum') => {
 
 const max = (arr) => {
      let max = -Infinity;
-      if (arrCheck(arr) !== false) {
+      if (arrCheck(arr)) {
           for (let i = 0; i < arr.length; i++) {
-              if (isNaN(arr[i]) === false) {
+              if (!isNaN(arr[i])) {
                   if (arr[i] > max) { max = arr[i] }
               }
           }
@@ -52,9 +51,9 @@ const max = (arr) => {
 
 const min = (arr) => {
     let min = Infinity;
-    if(arrCheck(arr) !== false) {
+    if(arrCheck(arr)) {
         for (let i = 0; i < arr.length; i++) {
-            if (isNaN(arr[i]) === false) {
+            if (!isNaN(arr[i])) {
                 if(arr[i] < min) {min = arr[i]}
             }
         }
@@ -66,9 +65,9 @@ const min = (arr) => {
 
 const sum = (arr) => {
     let sum = 0;
-    if (arrCheck(arr) !== false) {
+    if (arrCheck(arr)) {
         for (let i = 0; i < arr.length; i++) {
-            if (isNaN(arr[i]) === false) {
+            if (!isNaN(arr[i])) {
                 sum += arr[i];
             }
         }
